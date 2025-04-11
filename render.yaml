@@ -1,14 +1,29 @@
 services:
   - type: web
     name: missionsync-backend
-    runtime: node
-    repo: https://github.com/tu-usuario/missionsync-backend  # Cambia "tu-usuario" por tu usuario de GitHub
+    runtime: php
+    repo: https://github.com/tu-usuario/missionsync-backend  # Reemplaza "tu-usuario"
     branch: main
-    buildCommand: npm install
-    startCommand: node server.js
+    buildCommand: composer install
+    startCommand: php index.php
     envVars:
-      - key: MONGODB_URI
-        sync: false  # Configura este valor manualmente en Render después
+      - key: TURSO_URL
+        value: https://sync1212-branch-001-gumbblofficial.aws-us-east-1.turso.io  # Tu URL de Turso
+      - key: TURSO_TOKEN
+        sync: false  # Configura manualmente en Render
       - key: JWT_SECRET
-        value: un-secreto-muy-seguro-12345  # Cambia esto por un secreto único
+        value: un-secreto-muy-seguro-12345
+    plan: free
+  - type: web
+    name: missionsync-websocket
+    runtime: php
+    repo: https://github.com/tu-usuario/missionsync-backend
+    branch: main
+    buildCommand: composer install
+    startCommand: php websocket.php
+    envVars:
+      - key: TURSO_URL
+        value: https://sync1212-branch-001-gumbblofficial.aws-us-east-1.turso.io
+      - key: TURSO_TOKEN
+        sync: false
     plan: free
