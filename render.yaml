@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: missionsync-backend
+    runtime: node
+    repo: https://github.com/tu-usuario/missionsync-backend  # Cambia "tu-usuario" por tu usuario de GitHub
+    branch: main
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: MONGODB_URI
+        sync: false  # Configura este valor manualmente en Render después
+      - key: JWT_SECRET
+        value: un-secreto-muy-seguro-12345  # Cambia esto por un secreto único
+    plan: free
