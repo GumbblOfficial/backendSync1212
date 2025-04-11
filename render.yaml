@@ -2,7 +2,7 @@ services:
   - type: web
     name: missionsync-backend
     runtime: php
-    repo: https://github.com/tu-usuario/missionsync-backend  # Reemplaza "tu-usuario"
+    repo: https://github.com/GumbblOfficial/backend1212  # Reemplaza "tu-usuario"
     branch: main
     buildCommand: composer install
     startCommand: php index.php
@@ -17,7 +17,7 @@ services:
   - type: web
     name: missionsync-websocket
     runtime: php
-    repo: https://github.com/tu-usuario/missionsync-backend
+    repo: https://github.com/GumbblOfficial/backend1212
     branch: main
     buildCommand: composer install
     startCommand: php websocket.php
